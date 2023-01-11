@@ -50,6 +50,9 @@ public class Board {
 		return row >= 0 && row < rows && column >= 0 && column < columns;
 	}
 	public boolean thereIsAPiece(Position position) {
+		if(!positionExists(position)) {
+			throw new BoardException("Position not on the board");
+		}
 		return piece(position) != null;
 	}
 }
